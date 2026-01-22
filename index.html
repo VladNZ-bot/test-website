@@ -3,59 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Website</title>
+    <title>Siberian Larch NZ - Premium Wood Products</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">TestSite</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">Siberian Larch</span>
+                <span class="logo-subtitle">NZ</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#why-us">Why Us?</a></li>
+                    <li><a href="#advantages">Advantages</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Get a Quote</a></li>
+                </ul>
+                <a href="tel:+64211098193" class="phone-link">
+                    <span class="phone-icon">&#9742;</span>
+                    021 109 81 93
+                </a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+        </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <h1>Welcome to My Test Website</h1>
-            <p>This is a simple static website built with HTML, CSS, and JavaScript.</p>
-            <button id="cta-button">Get Started</button>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Premium Siberian Larch</h1>
+            <p class="hero-subtitle">Direct from Siberia to New Zealand</p>
+            <div class="hero-savings">
+                <span class="savings-text">Save up to</span>
+                <span class="savings-percent">70%</span>
+                <span class="savings-text">on your budget</span>
+            </div>
+            <p class="hero-description">We source the finest Siberian Larch timber directly from sustainable forests, bringing you exceptional quality at very competitive prices.</p>
+            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        </div>
+    </section>
 
-        <section id="about" class="about">
-            <h2>About</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Fast</h3>
-                    <p>Lightning-fast performance with no framework overhead.</p>
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Premium quality timber for every application</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop')"></div>
+                    <div class="product-info">
+                        <h3>Decking</h3>
+                        <p>Durable outdoor decking boards with natural resistance to weather and insects.</p>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Simple</h3>
-                    <p>Clean and minimal code that's easy to understand.</p>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=400&h=300&fit=crop')"></div>
+                    <div class="product-info">
+                        <h3>Cladding</h3>
+                        <p>Beautiful exterior cladding that ages gracefully and protects your home.</p>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Responsive</h3>
-                    <p>Looks great on all devices and screen sizes.</p>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&h=300&fit=crop')"></div>
+                    <div class="product-info">
+                        <h3>Flooring</h3>
+                        <p>Elegant interior flooring with exceptional hardness and stunning grain patterns.</p>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=400&h=300&fit=crop')"></div>
+                    <div class="product-info">
+                        <h3>Paneling</h3>
+                        <p>Interior wall and ceiling panels that add warmth and character to any space.</p>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-content">
+                    <h2>Why Choose Us?</h2>
+                    <p class="lead">We bring Siberian Larch directly from the source to your project, eliminating middlemen and passing the savings to you.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="feature-icon">&#10003;</span>
+                            <span>Direct sourcing from Siberian forests</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">&#10003;</span>
+                            <span>Up to 70% savings compared to local suppliers</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">&#10003;</span>
+                            <span>Sustainably harvested timber</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">&#10003;</span>
+                            <span>Quality guaranteed on every order</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">&#10003;</span>
+                            <span>Expert advice and support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Your Quote</a>
+                </div>
+                <div class="why-us-image">
+                    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=600&h=400&fit=crop" alt="Siberian Forest">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 TestSite. All rights reserved.</p>
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Advantages of Siberian Larch</h2>
+            <p class="section-subtitle">Nature's premium timber, perfected by extreme climates</p>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">&#127794;</div>
+                    <h3>Natural Durability</h3>
+                    <p>Grown in harsh Siberian conditions, the timber develops exceptional density and natural resistance to rot, decay, and insects.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">&#9730;</div>
+                    <h3>Weather Resistant</h3>
+                    <p>High resin content provides natural protection against rain, snow, and UV damage without chemical treatments.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">&#128293;</div>
+                    <h3>Fire Resistant</h3>
+                    <p>Dense grain structure gives Siberian Larch a higher fire resistance rating than many other softwoods.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">&#127912;</div>
+                    <h3>Beautiful Grain</h3>
+                    <p>Stunning natural grain patterns and warm honey tones that age gracefully to a distinguished silver-grey.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">&#127807;</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainably harvested from managed forests with full chain of custody certification.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">&#128176;</div>
+                    <h3>Cost Effective</h3>
+                    <p>Premium quality at competitive prices thanks to our direct sourcing model from Siberian suppliers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            <p class="section-subtitle">See Siberian Larch in action</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=300&fit=crop')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=400&h=300&fit=crop')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get a Free Quote</h2>
+                    <p class="lead">Contact us today for a no-obligation quote. We respond within 24 hours.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">&#9742;</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <a href="tel:+64211098193">021 109 81 93</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">&#9993;</span>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:info@siberianlarch.nz">info@siberianlarch.nz</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">&#128205;</span>
+                            <div>
+                                <strong>Location</strong>
+                                <span>Auckland, New Zealand</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <select name="product">
+                                <option value="">Select Product Type</option>
+                                <option value="decking">Decking</option>
+                                <option value="cladding">Cladding</option>
+                                <option value="flooring">Flooring</option>
+                                <option value="paneling">Paneling</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Tell us about your project" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <span class="logo-text">Siberian Larch</span>
+                        <span class="logo-subtitle">NZ</span>
+                    </div>
+                    <p>Premium Siberian Larch timber sourced directly from sustainable Siberian forests, delivered to New Zealand at competitive prices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#advantages">Advantages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Phone: <a href="tel:+64211098193">021 109 81 93</a></p>
+                    <p>Email: <a href="mailto:info@siberianlarch.nz">info@siberianlarch.nz</a></p>
+                    <p>Auckland, New Zealand</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Siberian Larch NZ. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
