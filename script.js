@@ -1,90 +1,66 @@
 // Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const nav = document.querySelector('.nav');
+const navbarToggle = document.querySelector('.navbar-toggle');
+const navbarMenu = document.querySelector('.navbar-menu');
 
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        mobileMenuBtn.innerHTML = nav.classList.contains('active') ? '&#10005;' : '&#9776;';
+if (navbarToggle) {
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+        navbarToggle.innerHTML = navbarMenu.classList.contains('active') ? '&#10005;' : '&#9776;';
     });
 }
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
+// Close menu on link click
+document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.innerHTML = '&#9776;';
-        }
+        navbarMenu.classList.remove('active');
+        navbarToggle.innerHTML = '&#9776;';
     });
 });
 
-// Smooth scrolling for all anchor links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 70;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            const offset = 66;
+            const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: position, behavior: 'smooth' });
         }
     });
 });
 
-// Contact form submission
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+// Contact form
+const form = document.getElementById('contact-form');
+if (form) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-
-        const formData = new FormData(this);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            product: formData.get('product'),
-            message: formData.get('message')
-        };
-
-        console.log('Quote request submitted:', data);
-        alert(`Thank you, ${data.name}! Your quote request has been received. We'll respond within 24 hours.`);
+        const name = this.elements['name'].value;
+        alert(`Thank you, ${name}! Your quote request has been received. We'll respond within 24 hours.`);
         this.reset();
     });
 }
 
-// Lightbox for gallery and portfolio images
+// Lightbox
 document.querySelectorAll('[data-lightbox]').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
-        const imageUrl = this.getAttribute('href');
 
         const lightbox = document.createElement('div');
         lightbox.className = 'lightbox';
 
         const img = document.createElement('img');
-        img.src = imageUrl;
-        img.alt = 'Full size image';
+        img.src = this.href;
 
         lightbox.appendChild(img);
         document.body.appendChild(lightbox);
 
-        // Close on click
         lightbox.addEventListener('click', () => lightbox.remove());
-
-        // Close on escape
-        const closeOnEscape = (e) => {
+        document.addEventListener('keydown', function handler(e) {
             if (e.key === 'Escape') {
                 lightbox.remove();
-                document.removeEventListener('keydown', closeOnEscape);
+                document.removeEventListener('keydown', handler);
             }
-        };
-        document.addEventListener('keydown', closeOnEscape);
+        });
     });
 });
