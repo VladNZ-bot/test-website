@@ -1,67 +1,3 @@
-// Slider functionality
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.slider-btn.prev');
-const nextBtn = document.querySelector('.slider-btn.next');
-const dotsContainer = document.querySelector('.slider-dots');
-
-let currentSlide = 0;
-let slideInterval;
-
-// Create dots
-slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll('.slider-dots .dot');
-
-function updateSlider() {
-    slides.forEach((slide, index) => {
-        slide.classList.remove('active');
-        dots[index].classList.remove('active');
-    });
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateSlider();
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateSlider();
-}
-
-function goToSlide(index) {
-    currentSlide = index;
-    updateSlider();
-    resetInterval();
-}
-
-function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 5000);
-}
-
-// Event listeners
-prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetInterval();
-});
-
-nextBtn.addEventListener('click', () => {
-    nextSlide();
-    resetInterval();
-});
-
-// Auto-advance slides
-slideInterval = setInterval(nextSlide, 5000);
-
 // Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.nav');
@@ -123,40 +59,26 @@ if (contactForm) {
     });
 }
 
-// Gallery lightbox
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const bgImage = this.style.backgroundImage;
-        const imageUrl = bgImage.slice(5, -2);
+// Lightbox for gallery and portfolio images
+document.querySelectorAll('[data-lightbox]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const imageUrl = this.getAttribute('href');
 
         const lightbox = document.createElement('div');
-        lightbox.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            cursor: pointer;
-        `;
+        lightbox.className = 'lightbox';
 
         const img = document.createElement('img');
-        img.src = imageUrl.replace('w=400&h=300', 'w=1200&h=800');
-        img.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 4px;
-        `;
+        img.src = imageUrl;
+        img.alt = 'Full size image';
 
         lightbox.appendChild(img);
         document.body.appendChild(lightbox);
 
+        // Close on click
         lightbox.addEventListener('click', () => lightbox.remove());
 
+        // Close on escape
         const closeOnEscape = (e) => {
             if (e.key === 'Escape') {
                 lightbox.remove();

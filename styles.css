@@ -29,7 +29,7 @@ h1, h2, h3, h4 {
     color: #1a1a1a;
 }
 
-h1 { font-size: 2.75rem; }
+h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; margin-bottom: 2rem; }
 h3 { font-size: 1.25rem; }
 h4 { font-size: 1.1rem; }
@@ -91,8 +91,11 @@ section h2 {
     height: 70px;
 }
 
-.logo img {
-    height: 40px;
+.logo a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8B4513;
+    text-decoration: none;
 }
 
 .nav {
@@ -138,117 +141,60 @@ section h2 {
     color: #333;
 }
 
-/* Hero Slider */
-.hero-slider {
-    position: relative;
-    height: 600px;
+/* Hero Boxes - 3 side by side */
+.hero-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 70px;
-    overflow: hidden;
+    min-height: 500px;
 }
 
-.slides {
+.hero-box {
     position: relative;
-    height: 100%;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
 }
 
-.slide.active {
-    opacity: 1;
-}
-
-.slide-overlay {
+.hero-box-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
 }
 
-.slide-content {
+.hero-box-content {
     position: relative;
     z-index: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     color: #fff;
     padding: 2rem;
+    max-width: 100%;
 }
 
-.slide-content h1 {
+.hero-box-content h1,
+.hero-box-content h2 {
     color: #fff;
-    font-size: 3rem;
+    font-size: 1.75rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.slide-content p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+.hero-box-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.3s;
-}
-
-.slider-btn:hover {
-    background: #fff;
-}
-
-.slider-btn.prev {
-    left: 20px;
-}
-
-.slider-btn.next {
-    right: 20px;
-}
-
-.slider-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.slider-dots .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.slider-dots .dot.active {
-    background: #fff;
+.hero-box-content .highlight {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #FFD700;
 }
 
 /* Why Us Section */
@@ -292,17 +238,7 @@ section h2 {
     font-size: 1.1rem;
 }
 
-.slide-content .highlight {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #FFD700;
-}
-
-/* Products Section */
-.products {
-    background: #f5f5f5;
-}
-
+/* Products Grid */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -321,13 +257,17 @@ section h2 {
 }
 
 .product-image {
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
     height: 200px;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
     transition: transform 0.3s;
 }
 
-.product-card:hover .product-image {
+.product-card:hover .product-image img {
     transform: scale(1.05);
 }
 
@@ -345,31 +285,40 @@ section h2 {
 
 /* Gallery Section */
 .gallery {
-    background: #fff;
+    background: #f9f9f9;
+    padding: 3rem 0;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
 .gallery-item {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.3s;
 }
 
-.gallery-item:hover {
+.gallery-item a {
+    display: block;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.gallery-item:hover img {
     opacity: 0.8;
+    transform: scale(1.02);
 }
 
 /* Advantages Section */
 .advantages {
-    background: #f5f5f5;
+    background: #fff;
 }
 
 .advantages-grid {
@@ -381,7 +330,7 @@ section h2 {
 }
 
 .advantage-card {
-    background: #fff;
+    background: #f9f9f9;
     padding: 2rem;
     border-radius: 4px;
     text-align: left;
@@ -402,7 +351,7 @@ section h2 {
 
 /* Contact Section */
 .contact {
-    background: #fff;
+    background: #f9f9f9;
 }
 
 .contact-grid {
@@ -437,9 +386,10 @@ section h2 {
 }
 
 .contact-form-wrapper {
-    background: #f5f5f5;
+    background: #fff;
     padding: 2rem;
     border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form {
@@ -473,7 +423,7 @@ section h2 {
 
 /* Partners Section */
 .partners {
-    background: #f5f5f5;
+    background: #fff;
 }
 
 .partners-grid {
@@ -483,7 +433,7 @@ section h2 {
 }
 
 .partner-card {
-    background: #fff;
+    background: #f9f9f9;
     padding: 2rem;
     border-radius: 4px;
     text-align: center;
@@ -491,16 +441,22 @@ section h2 {
 
 .partner-card .partner-logo {
     margin-bottom: 1rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .partner-card .partner-logo img {
-    max-height: 60px;
+    max-height: 80px;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .partner-card h3 {
     color: #8B4513;
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .partner-card p {
@@ -522,6 +478,38 @@ section h2 {
 
 .partner-card a:hover {
     text-decoration: underline;
+}
+
+/* Portfolio Section */
+.portfolio {
+    background: #f9f9f9;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.portfolio-item {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.portfolio-item a {
+    display: block;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.portfolio-item:hover img {
+    opacity: 0.8;
+    transform: scale(1.02);
 }
 
 /* Footer */
@@ -557,13 +545,11 @@ section h2 {
     color: #fff;
 }
 
-.footer-links ul,
-.footer-legal ul {
+.footer-links ul {
     list-style: none;
 }
 
-.footer-links li,
-.footer-legal li {
+.footer-links li {
     margin-bottom: 0.5rem;
 }
 
@@ -595,9 +581,42 @@ section h2 {
     font-size: 0.85rem;
 }
 
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
+    .hero-boxes {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-box {
+        min-height: 350px;
+    }
+
     .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -613,21 +632,22 @@ section h2 {
         grid-template-columns: 1fr;
     }
 
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
+    h1 { font-size: 1.75rem; }
     h2 { font-size: 1.5rem; }
 
-    .hero-slider {
-        height: 450px;
-    }
-
-    .slide-content h1 {
-        font-size: 2rem;
+    .hero-box-content h1,
+    .hero-box-content h2 {
+        font-size: 1.5rem;
     }
 
     .nav {
@@ -656,14 +676,6 @@ section h2 {
     }
 
     .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .advantages-grid {
         grid-template-columns: 1fr;
     }
 
