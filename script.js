@@ -1,3 +1,67 @@
+// Slider functionality
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.slider-btn.prev');
+const nextBtn = document.querySelector('.slider-btn.next');
+const dotsContainer = document.querySelector('.slider-dots');
+
+let currentSlide = 0;
+let slideInterval;
+
+// Create dots
+slides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.slider-dots .dot');
+
+function updateSlider() {
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        dots[index].classList.remove('active');
+    });
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlider();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlider();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+    resetInterval();
+}
+
+function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+// Event listeners
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+});
+
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+});
+
+// Auto-advance slides
+slideInterval = setInterval(nextSlide, 5000);
+
 // Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.nav');
@@ -13,7 +77,9 @@ if (mobileMenuBtn) {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         nav.classList.remove('active');
-        mobileMenuBtn.innerHTML = '&#9776;';
+        if (mobileMenuBtn) {
+            mobileMenuBtn.innerHTML = '&#9776;';
+        }
     });
 });
 
@@ -35,19 +101,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header background change on scroll
-const header = document.querySelector('.header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        header.style.background = '#fff';
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
-
 // Contact form submission
 const contactForm = document.getElementById('contact-form');
 
@@ -64,47 +117,18 @@ if (contactForm) {
             message: formData.get('message')
         };
 
-        // Log form data (in production, send to server)
         console.log('Quote request submitted:', data);
-
-        // Show success message
         alert(`Thank you, ${data.name}! Your quote request has been received. We'll respond within 24 hours.`);
-
-        // Reset form
         this.reset();
     });
 }
 
-// Animate elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe product cards, advantage cards, and gallery items
-document.querySelectorAll('.product-card, .advantage-card, .gallery-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Gallery lightbox (simple implementation)
+// Gallery lightbox
 document.querySelectorAll('.gallery-item').forEach(item => {
     item.addEventListener('click', function() {
         const bgImage = this.style.backgroundImage;
-        const imageUrl = bgImage.slice(5, -2); // Extract URL from background-image
+        const imageUrl = bgImage.slice(5, -2);
 
-        // Create lightbox
         const lightbox = document.createElement('div');
         lightbox.style.cssText = `
             position: fixed;
@@ -125,19 +149,14 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         img.style.cssText = `
             max-width: 90%;
             max-height: 90%;
-            border-radius: 8px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
         `;
 
         lightbox.appendChild(img);
         document.body.appendChild(lightbox);
 
-        // Close on click
-        lightbox.addEventListener('click', () => {
-            lightbox.remove();
-        });
+        lightbox.addEventListener('click', () => lightbox.remove());
 
-        // Close on escape
         const closeOnEscape = (e) => {
             if (e.key === 'Escape') {
                 lightbox.remove();
