@@ -519,6 +519,137 @@ strong {
     color: #767676;
 }
 
+/* Page Hero */
+.page-hero {
+    min-height: 350px;
+    margin-top: 66px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px;
+}
+
+.page-hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.page-hero-content p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Page Header (for legal pages) */
+.page-header {
+    margin-top: 66px;
+    padding: 60px 0;
+    background: #232323;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    color: #fff;
+}
+
+/* Legal Content */
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-content h2 {
+    font-size: 24px;
+    color: #232323;
+    margin: 30px 0 15px;
+}
+
+.legal-content h2:first-child {
+    margin-top: 0;
+}
+
+.legal-content p {
+    font-size: 15px;
+    color: #767676;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.legal-content ul {
+    margin: 0 0 15px 30px;
+    color: #767676;
+}
+
+.legal-content li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.legal-content a {
+    color: #6592e6;
+}
+
+/* Product Features */
+.product-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.feature-box {
+    background: #f8f8f8;
+    padding: 30px;
+    text-align: center;
+}
+
+.feature-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #232323;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feature-box p {
+    font-size: 15px;
+    color: #767676;
+    line-height: 1.7;
+}
+
+/* Text Center */
+.text-center {
+    text-align: center;
+}
+
+.text-center p {
+    font-size: 17px;
+    color: #767676;
+    margin-bottom: 20px;
+}
+
 /* Lightbox */
 .lightbox {
     position: fixed;
@@ -567,6 +698,14 @@ strong {
 
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-features {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero-content h1 {
+        font-size: 32px;
     }
 }
 
