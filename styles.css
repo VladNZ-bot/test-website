@@ -277,15 +277,42 @@ a:hover {
 
 .gallery-grid img {
     width: 100%;
-    height: 250px;
+    aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
     border-radius: 4px;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
 }
 
 .gallery-grid img:hover {
-    opacity: 0.85;
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Gallery variant for 2 columns (fewer images) */
+.gallery-grid-2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-grid-2col img {
+    aspect-ratio: 3/4;
+}
+
+/* Gallery with featured first image */
+.gallery-grid-featured img:first-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 21/9;
+}
+
+/* About page gallery - all images same size */
+.gallery-grid-about {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-grid-about img {
+    aspect-ratio: 1/1;
+    object-position: center top;
 }
 
 /* Contact Form */
