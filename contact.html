@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decking – Siberian Larch</title>
+    <title>Contact – Siberian Larch</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
@@ -21,10 +21,10 @@
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="decking.html" class="active">Decking</a></li>
+                    <li><a href="decking.html">Decking</a></li>
                     <li><a href="flooring.html">Flooring</a></li>
                     <li><a href="cladding.html">Cladding</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,15 +32,26 @@
 
     <main class="site-main">
         <div class="page-content">
-            <h1>Decking</h1>
-            <div class="gallery-grid">
-                <img src="https://i0.wp.com/siberianlarch.nz/wp-content/uploads/2025/09/20151001_133718-768x1024-1.jpg?ssl=1" alt="Larch decking">
-                <img src="https://i0.wp.com/siberianlarch.nz/wp-content/uploads/2025/09/20151001_133736-large-768x1024-1.jpg?ssl=1" alt="Larch decking">
-                <img src="https://i0.wp.com/siberianlarch.nz/wp-content/uploads/2025/09/20151001_135107-large-768x1024-1.jpg?ssl=1" alt="Larch decking">
-                <img src="https://i0.wp.com/siberianlarch.nz/wp-content/uploads/2025/09/20151001_135136-large-768x1024-1.jpg?ssl=1" alt="Larch decking">
-                <img src="https://i0.wp.com/siberianlarch.nz/wp-content/uploads/2025/09/larch-decking-2.jpg?ssl=1" alt="Larch decking">
-                <img src="https://i0.wp.com/siberianlarch.nz/wp-content/uploads/2025/09/larch-decking-1024x438-1.jpg?ssl=1" alt="Larch decking">
-            </div>
+            <h1>Contact</h1>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+64 " required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
         </div>
     </main>
 
